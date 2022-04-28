@@ -1,0 +1,57 @@
+import {useState } from 'react';
+import { ethers, BigNumber} from 'ethers';
+import skaterPunks from './Skaterpunks.json';
+
+const skaterPunksAddress = "0x1591E3cDB0360ABDb764B6c9F8F61F9794fdf12c"
+
+const MainMint = ({ accounts, setAccounts }) => {
+    const [mintAmount, setMintAmount] = useState(1);
+    const isConnected = Boolean(accounts[0]);
+
+    async function handleMint() {
+        if (window.ethereum) {
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+            const signer = provider.getSigner();
+            const contract = new ethers.Contract(
+                skaterPunksAddress,
+                skaterPunks.abi,
+                signer
+            );
+            try {
+                const response = await contract.mint(BigNumber.from(mintAmount));
+                console.log('response: ', response);
+            } catch (err) {
+                console.log("error: ", err)
+            }
+        }
+    }
+    
+    const handleDecrement = () => {
+        if (mintAmount <= 1) return;
+        setMintAmount(mintAmount - 1);
+    };
+
+    const handleIncrement = () => {
+        if (mintAmount <= 3) return;
+        setMintAmount(mintAmount + 1);
+    }; 
+
+    return (
+        <div>
+            <h1>SkaterPunks</h1>
+            <p>Mint your SkaterPunks NFT now!</p>
+            {isConnected ? (
+                <div>
+                    <div>
+                        <button onClick={handleDecrement}>-</button>
+                        <input type="number" value ={mintAmount} />
+                        <button onClick={handleIncrement}>+</button>
+                    </div>
+                </div>
+            ) : (
+                <p>You must be connected to MainMint. </p>
+            )}
+        </div>
+    )
+};
+export default MainMint;
