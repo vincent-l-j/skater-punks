@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
 @import url("https://fonts.googleapis.com/css?family=VT323");
 
+
 .App {
   text-align: center;
-  font-family: "Press Start 2P", "VT323";
-  color: black;
-}
+  font-family: "Press Start 2P, VT323";
+  color: white;
+ }
 
 * {
   box-sizing: border-box;
@@ -32,20 +33,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("./assets/background/skateboarder-parallax_mrtakaart.gif");
-  /*
-  https://giphy.com/gifs/trippy-glitch-psychedelic-zJ9xu98ZXoPzVPisiT
-  https://giphy.com/gifs/skateboard-monkey-skateboarding-animals-BhW85yDQ1TA3u
-  https://giphy.com/gifs/kingoftheroad-viceland-king-of-the-road-3o7qDFoXt22QsZVey4
-  https://giphy.com/gifs/skateboarding-skate-tgIhKRf5ELIje
-  https://giphy.com/gifs/animation-art-summer-1Qde6lzEKNftC
-  https://giphy.com/gifs/loop-infinite-Fd0rrjTJ3yLDi
-  https://giphy.com/gifs/design-mograph-tunnel-3o85xzkvl1siB2rHSo
-  https://giphy.com/gifs/neon-mograph-tunnel-3oEduLeaoCojUXv3Lq
-  https://giphy.com/gifs/c4d-test-AJe3kLDLvYERq
-  https://giphy.com/gifs/Falken-Tyres-background-backdrop-zoom-F2MmrQ5EOjLuAwgoRs
-  https://giphy.com/gifs/side-scroller-sidescrolling-scrolling-U7huVmA3TKuqvznInJ
-  */
+  background-image: url("./assets/background/parallax-bg.gif");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
