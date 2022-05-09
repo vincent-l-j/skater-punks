@@ -1,3 +1,4 @@
+import { Flex, Box, Text, Button, Input } from "@chakra-ui/react";
 import { useState } from "react";
 import skaterPunks from "./SkaterPunks.json";
 const { ethers } = require("ethers");
@@ -45,24 +46,91 @@ const MainMint = ({ accounts, setAccounts }) => {
   };
 
   return (
-    <div>
-      <h1>Skater Punks</h1>
-      <p>He was a skater boy. She said, "See you later, boy"</p>
-      {isConnected ? (
+    <Flex justify="center" align="center" height="100vh" paddingBottom="550px">
+      <Box width="520px">
         <div>
-          <div>
-            <button onClick={handleDecrement}>-</button>
-            <input type="number" value={mintAmount} />
-            <button onClick={handleIncrement}>+</button>
-          </div>
-          <button onClick={handleMint}>Mint Now</button>
+          <Text fontSize="40px" textShadow="0 3px #FFFFFF">
+            Skater Punks
+          </Text>
+          <Text
+            fontSize="30px"
+            letterSpacing="-5.5%"
+            fontFamily="VT323"
+            textShadow="0 2px 2px #FFFFFF"
+          >
+            He was a skater boy. She said, "See you later, boy"
+          </Text>
+
+          {isConnected ? (
+            <div>
+              <Flex align="center" justify="center">
+                <Button
+                  backgroundColor="58 58 58"
+                  borderRadius="5px"
+                  boxShadow="0px 2px 2px 1px #0F0F0F"
+                  color="black"
+                  cursor="pointer"
+                  fontFamily="inherit"
+                  padding="15px"
+                  marginTop="10px"
+                  onClick={handleDecrement}
+                >
+                  -
+                </Button>
+                <Input
+                  readOnly
+                  fontFamily="inherit"
+                  width="100px"
+                  height="50px"
+                  textAlign="center"
+                  paddingLeft="19px"
+                  marginTop="10px"
+                  type="number"
+                  value={mintAmount}
+                />
+                <Button
+                  backgroundColor="58 58 58"
+                  borderRadius="5px"
+                  boxShadow="0px 2px 2px 1px #0F0F0F"
+                  color="black"
+                  cursor="pointer"
+                  fontFamily="inherit"
+                  padding="15px"
+                  marginTop="10px"
+                  onClick={handleIncrement}
+                >
+                  +
+                </Button>
+              </Flex>
+              <Button
+                backgroundColor="58 58 58"
+                borderRadius="5px"
+                boxShadow="0px 2px 2px 1px #0F0F0F"
+                color="black"
+                cursor="pointer"
+                fontFamily="inherit"
+                padding="15px"
+                marginTop="10px"
+                onClick={handleMint}
+              >
+                Mint Now
+              </Button>
+            </div>
+          ) : (
+            <Text
+              marginTop="70px"
+              fontSize="30px"
+              letterSpacing="-5.5%"
+              fontFamily="VT323"
+              textShadow="0 2px #FFFFFF"
+              color="58 58 58"
+            >
+              Please connect your MetaMask account to mint your own Skater Punks
+            </Text>
+          )}
         </div>
-      ) : (
-        <div>
-          Please connect your MetaMask account to mint your own Skater Punks
-        </div>
-      )}
-    </div>
+      </Box>
+    </Flex>
   );
 };
 

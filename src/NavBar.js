@@ -48,7 +48,7 @@ const NavBar = ({ accounts, setAccounts }) => {
             backgroundColor="darkgoldenrod"
             borderRadius="5px"
             boxShadow="0px 2px 2px 1px #0F0F0F"
-            color="white"
+            color="black"
             cursor="pointer"
             fontFamily="inherit"
             padding="15px"
